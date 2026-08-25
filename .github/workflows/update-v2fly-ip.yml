@@ -1,0 +1,44 @@
+name: Update v2fly IP rules
+
+on:
+  schedule:
+    # 每月 1 日 UTC 02:00（北京时间 10:00）自动运行
+    - cron: "0 2 1 * *"
+  workflow_dispatch: {}   # 支持手动触发
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-v2fly-ip
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate rule files
+        run: python3 scripts/generate_v2fly_ip.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add rules5/v2fly-ip.list rules5/v2fly-ip.json
+
+          if git diff --cached --quiet; then
+            echo "没有变化，跳过提交"
+            exit 0
+          fi
+
+          git commit -m "chore: update v2fly IP rules ($(date -u +'%Y-%m-%d'))"
+          git push
