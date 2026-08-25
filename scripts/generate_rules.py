@@ -99,9 +99,6 @@ def parse_source(text: str):
 
 def build_list_file(domain_suffix_list, domain_full_list) -> str:
     lines = []
-    lines.append("# 由 GitHub Actions 自动生成，请勿手动编辑")
-    lines.append(f"# 数据源: {SOURCE_URL}")
-    lines.append("")
 
     for d in domain_full_list:
         lines.append(f"DOMAIN,{d}")
