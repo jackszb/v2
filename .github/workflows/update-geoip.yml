@@ -1,0 +1,44 @@
+name: Update geoip-!cn.list
+
+on:
+  schedule:
+    # 每月 1 号 UTC 00:00 自动运行一次（北京时间 08:00）
+    - cron: "0 0 1 * *"
+  workflow_dispatch: {}   # 支持在 Actions 页面手动触发
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-geoip
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install --no-cache-dir requests
+
+      - name: Generate geoip-!cn.list
+        run: python scripts/generate_geoip.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "geoip-!cn.list"
+          if git diff --cached --quiet; then
+            echo "内容没有变化，跳过提交"
+          else
+            git commit -m "chore: update geoip-!cn.list ($(date -u +'%Y-%m-%d'))"
+            git push
+          fi
