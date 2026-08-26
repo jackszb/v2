@@ -1,0 +1,14 @@
+# ip 来源配置文件
+# 格式：类型,URL
+# 类型只能是 ipv4 或 ipv6
+# 以 # 开头的行为注释，会被忽略
+# 需要增加/删除链接时，直接在下面添加或删除一行即可
+
+ipv4,https://raw.githubusercontent.com/lord-alfred/ipranges/main/google/ipv4_merged.txt
+ipv4,https://raw.githubusercontent.com/lord-alfred/ipranges/main/twitter/ipv4_merged.txt
+ipv4,https://raw.githubusercontent.com/lord-alfred/ipranges/main/telegram/ipv4_merged.txt
+
+# 如需支持 ipv6，取消下面对应链接的注释，或换成实际存在的 ipv6 文件地址
+# ipv6,https://raw.githubusercontent.com/lord-alfred/ipranges/main/google/ipv6_merged.txt
+# ipv6,https://raw.githubusercontent.com/lord-alfred/ipranges/main/twitter/ipv6_merged.txt
+# ipv6,https://raw.githubusercontent.com/lord-alfred/ipranges/main/telegram/ipv6_merged.txt
