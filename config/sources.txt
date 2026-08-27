@@ -7,7 +7,6 @@
 ipv4,https://raw.githubusercontent.com/lord-alfred/ipranges/main/google/ipv4_merged.txt
 ipv4,https://raw.githubusercontent.com/lord-alfred/ipranges/main/twitter/ipv4_merged.txt
 ipv4,https://raw.githubusercontent.com/lord-alfred/ipranges/main/telegram/ipv4_merged.txt
-https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv4_merged.txt
-
+ipv4,https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv4_merged.txt
 # 如需支持 ipv6，取消下面对应链接的注释，或换成实际存在的 ipv6 文件地址
 # ipv6,https://raw.githubusercontent.com/lord-alfred/ipranges/main/google/ipv6_merged.txt
