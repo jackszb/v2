@@ -32,9 +32,9 @@ IP-CIDR,203.0.113.0/24,no-resolve
 IP-CIDR,224.0.0.0/4,no-resolve
 IP-CIDR,240.0.0.0/4,no-resolve
 IP-CIDR,255.255.255.255/32,no-resolve
-IP-CIDR6,::1/128,no-resolve
-IP-CIDR6,fc00::/7,no-resolve
-IP-CIDR6,fe80::/10,no-resolve
+IP-CIDR,::1/128,no-resolve
+IP-CIDR,fc00::/7,no-resolve
+IP-CIDR,fe80::/10,no-resolve
 #weixin qq
 DOMAIN,btrace.qq.com
 DOMAIN,c6.y.qq.com
