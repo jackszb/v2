@@ -25,7 +25,7 @@ OUTPUT_FILE = ROOT_DIR / "geoip-cn.list"
 # 上游数据源（已经合并去重好的 ipv4 / ipv6 网段文件）
 # 需要替换或增加来源时，直接编辑这个列表即可
 SOURCES = [
-    "https://raw.githubusercontent.com/jackszb/ip-merge/main/rules/ipv4.json",
+    "https://raw.githubusercontent.com/jackszb/sukka-json/main/ip/china_ip.json",
 ]
 
 REQUEST_TIMEOUT = 30
